@@ -843,6 +843,8 @@ aJsonClass::getArrayItem(aJsonObject *array, unsigned char item)
 aJsonObject*
 aJsonClass::getObjectItem(aJsonObject *object, const char *string)
 {
+  if (!object) return NULL;
+  
   aJsonObject *c = object->child;
   while (c && strcasecmp(c->name, string))
     c = c->next;
